@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.2.xsd">
+    <changeSet author="Rakhim" id="2023-06-12-add-company-table"
+               context="development">
+        <createTable tableName="company">
+            <column name="id" type="number">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)" />
+            <column name="type" type="VARCHAR(255)" />
+            <column name="address_id" type="number"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-address-table"
+               context="development">
+        <createTable tableName="address">
+            <column name="id" type="number">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="index" type="VARCHAR(50)" />
+            <column name="city" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="street" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="house" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flat" type="VARCHAR(50)" />
+        </createTable>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-branch-table"
+               context="development">
+        <createTable tableName="branch">
+            <column name="id" type="number">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="company_id" type="number"/>
+            <column name="address_id" type="number"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-address"
+               context="development">
+        <insert tableName="address">
+            <column name="id" value="1"/>
+            <column name="index" value="050000"/>
+            <column name="city" value="Moscow"/>
+            <column name="street" value="Pushkina"/>
+            <column name="house" value="48"/>
+            <column name="flat" value="1"/>
+        </insert>
+        <insert tableName="address">
+            <column name="id" value="2"/>
+            <column name="index" value="060000"/>
+            <column name="city" value="Saratov"/>
+            <column name="street" value="Komsomolskaya"/>
+            <column name="house" value="12"/>
+        </insert>
+        <insert tableName="address">
+            <column name="id" value="3"/>
+            <column name="index" value="070000"/>
+            <column name="city" value="Tumen"/>
+            <column name="street" value="Furmanova"/>
+            <column name="house" value="2"/>
+            <column name="flat" value="50"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-company"
+               context="development">
+        <insert tableName="company">
+            <column name="id" value="1"/>
+            <column name="name" value="SimBio Technologies"/>
+            <column name="type" value="LTD"/>
+            <column name="address_id" value="2"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-company2"
+               context="development">
+        <insert tableName="company">
+            <column name="id" value="2"/>
+            <column name="name" value="Baron Palms"/>
+            <column name="type" value="AO"/>
+            <column name="address_id" value="1"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-branch"
+               context="development">
+        <insert tableName="branch">
+            <column name="id" value="1"/>
+            <column name="name" value="SUN"/>
+            <column name="company_id" value="1"/>
+            <column name="address_id" value="1"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-branch2"
+               context="development">
+        <insert tableName="branch">
+            <column name="id" value="2"/>
+            <column name="name" value="Albatros"/>
+            <column name="company_id" value="1"/>
+            <column name="address_id" value="2"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-branch3"
+               context="development">
+        <insert tableName="branch">
+            <column name="id" value="3"/>
+            <column name="name" value="Holidays"/>
+            <column name="company_id" value="2"/>
+            <column name="address_id" value="1"/>
+        </insert>
+    </changeSet>
+    <changeSet author="Rakhim" id="2023-06-12-add-branch4"
+               context="development">
+        <insert tableName="branch">
+            <column name="id" value="4"/>
+            <column name="name" value="Rokky"/>
+            <column name="company_id" value="2"/>
+            <column name="address_id" value="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

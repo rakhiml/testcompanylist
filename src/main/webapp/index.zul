@@ -1,0 +1,37 @@
+<window id="win" title="Справочник" border="normal"
+        apply="com.example.test.CompanyController">
+  <div>
+      <listbox model = "${win$composer.companiesModel}" id="companies" emptyMessage="No company found in the result" height="160px" style="margin-top:10px">
+          <listhead>
+              <listheader label="ID" width="10%"/>
+              <listheader label="Name" />
+              <listheader label="Type" />
+              <listheader label="Address" />
+          </listhead>
+          <template name="model">
+              <listitem>
+                  <listcell label="${each.id}"></listcell>
+                  <listcell label="${each.name}"></listcell>
+                  <listcell label="${each.type}"></listcell>
+                  <listcell label="${each.address}"></listcell>
+              </listitem>
+          </template>
+      </listbox>
+
+      <listbox model = "${win$composer.branchesModel}" id="branches" emptyMessage="No branches found in the result" visible="false">
+          <listhead>
+              <listheader label="ID" width="10%"/>
+              <listheader label="Name" />
+              <listheader label="Address" />
+          </listhead>
+          <template name="model">
+              <listitem>
+                  <listcell label="${each.id}"></listcell>
+                  <listcell label="${each.name}"></listcell>
+                  <listcell label="${each.address}"></listcell>
+              </listitem>
+          </template>
+      </listbox>
+  </div>
+
+</window>
